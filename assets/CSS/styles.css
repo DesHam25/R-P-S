@@ -1,0 +1,445 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&family=Roboto+Slab:wght@300;400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* CSS Rest */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  color-scheme: dark light;
+  font-size: 62.5%;
+  /* This defines what 1rem is */
+  /* the default font-size of the browser 16 pixels. What we want is to set it to 10 pixels using percent  10 divided by 16 is 0.625 which is turn into a percent of 62.5%. .625 * 16 = 62.5 10 pixels */
+}
+body {
+  box-sizing: border-box;
+  color: var(--text-100);
+  font-size: 2rem;
+  font-weight: 400;
+  position: relative;
+  line-height: 1.7;
+  /* body font-size now 10px due to the change to html 62.5% */
+  min-height: 100vh;
+  background: var(--bgv-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+  width: 1.3rem; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--bgv-100); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bgv-100); /* color of the scroll thumb */
+  border-radius: 0.3rem; /* roundness of the scroll thumb */
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(
+    --primary-100
+  ); /* creates bg-color change scroll thumb */
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+li {
+  list-style: none;
+}
+a {
+  color: inherit;
+  display: inline-block;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+/* CSS Rest */
+
+/* Global Variables */
+:root {
+  --primary-100: rgb(0, 167, 142);
+
+  --text-100: #94a3b8;
+  --text-200: #cbd5e1;
+
+  --primary-color: rgb(222, 228, 231);
+
+  --bg-100: #1e293b;
+  --bgv-100: rgba(30, 41, 59, 0.8);
+
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+/* ==========  BTN ( Components) ========== */
+
+/* -------------------------------BASE----------------------------------- */
+
+.navigation {
+  position: fixed;
+  top: 3rem;
+  left: 3rem;
+  width: 14rem;
+  height: 8rem;
+  background: var(--bgv-100);
+  box-shadow: 0 2.5rem 3.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  transition: height 0.5s, width 0.5s;
+  transition-delay: 0s, 0.75s;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.navigation.active {
+  width: 37rem;
+  height: 32rem;
+  transition: width 0.5s, height 0.5s;
+  transition-delay: 0s, 0.75s;
+}
+.navigation .userBx {
+  position: relative;
+  width: 7rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.navigation.active .userBx {
+  width: calc(100% - 7rem);
+  transition-delay: 0s;
+}
+
+.navigation .userBx .username {
+  white-space: nowrap;
+  position: absolute;
+  right: 5%;
+  padding: 0.5rem;
+}
+
+.navigation .userBx .username {
+  font-size: 2rem;
+}
+
+.navigation .userBx .imgBx {
+  position: relative;
+  min-width: 7rem;
+  height: 8rem;
+  overflow: hidden;
+  /* border: 1rem solid ; */
+}
+
+.navigation .userBx .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  filter: grayscale(60%);
+}
+
+.navigation .menuToggle {
+  position: relative;
+  width: 7rem;
+  height: 8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation .menuToggle::before {
+  content: '';
+  position: absolute;
+  width: 3rem;
+  height: 2px;
+  background: var(--primary-color);
+  transform: translateY(-10px);
+  box-shadow: 0 10px var(--primary-color);
+  transition: 0.5s;
+}
+
+.navigation .menuToggle::after {
+  content: '';
+  position: absolute;
+  width: 3rem;
+  height: 2px;
+  background: var(--primary-color);
+  transform: translateY(10px);
+  transition: 0.5s;
+}
+
+.navigation.active .menuToggle::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0px var(--primary-color);
+}
+.navigation.active .menuToggle::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 8rem);
+  margin-top: 8rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.menu li {
+  position: relative;
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.menu li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  gap: 1rem;
+  color: var(--primary-color);
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+
+.menu li a:hover {
+  /* font-size: 2.5rem; */
+  color: #ff6547;
+  transform: translateX(1rem);
+}
+
+/* Form Page style*/
+
+/* header style */
+header > h1 {
+  text-align: center;
+}
+/* header style */
+
+/* score-board style */
+.score-board {
+  margin: 2rem auto;
+  background-color: var(--bgv-100);
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem;
+  font-size: 4rem;
+  width: 20rem;
+  text-align: center;
+  position: relative;
+}
+
+.badge {
+  background-image: linear-gradient(
+    45deg,
+    #ff6547 0%,
+    #ffb144 51%,
+    #ff7053 100%
+  );
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 2px 1rem;
+  border-radius: 2px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+}
+
+#user-label {
+  position: absolute;
+  top: 3rem;
+  left: -3rem;
+}
+#computer-label {
+  position: absolute;
+  top: 3rem;
+  right: -3rem;
+}
+/* score-board style */
+/* Result style */
+.result {
+  font-size: 4rem;
+}
+
+.result > p {
+  text-align: center;
+}
+/* Result style */
+
+.r-p-s_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3rem 0 5rem 0;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card_box {
+  width: 20rem;
+  height: 25rem;
+  border-radius: 1rem;
+  background: var(--bgv-100);
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_box:hover {
+  transform: scale(0.9);
+}
+
+.card_box span {
+  position: absolute;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_box span::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background-image: linear-gradient(
+    45deg,
+    #ff6547 0%,
+    #ffb144 51%,
+    #ff7053 100%
+  );
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+}
+
+.card_box .ban-r::before {
+  content: 'Rock';
+}
+.card_box .ban-p::before {
+  content: 'Paper';
+}
+.card_box .ban-s::before {
+  content: 'Scissor';
+}
+.card_box span::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  z-index: -1;
+  box-shadow: 140px -140px #cc3f47;
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+}
+
+.choice img {
+  width: 15rem;
+}
+
+#action-message {
+  font-size: 3rem;
+}
+
+.green-glow {
+  border: 10px solid #4dcc7d;
+  box-shadow: 0 0 10px #31b43a;
+}
+
+.red-glow {
+  border: 10px solid #fc121b;
+  box-shadow: 0 0 10px #d01115;
+}
+.blue-glow {
+  border: 10px solid #002fff;
+  box-shadow: 0 0 10px #011066d5;
+}
+
+/* border-radius: 50px;
+background: linear-gradient(315deg, #f0f0f0, #cacaca);
+box-shadow:  -20px -20px 60px #bebebe,
+             20px 20px 60px #ffffff; */
+
+/* border-radius: 50px;
+background: #e0e0e0;
+box-shadow: inset -20px -20px 60px #bebebe,
+            inset 20px 20px 60px #ffffff; */
+
+/* Mobile View */
+
+@media only screen and (max-width: 800px) {
+  header {
+    margin-top: 15rem;
+  }
+
+  /* .r-p-s_container{
+  display: flex;
+  flex-direction: column;
+} */
+  .card-container {
+    margin-bottom: 5rem;
+  }
+  .card_box {
+    width: 13rem;
+    height: 18rem;
+  }
+  .card_box span {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .card_box span::before {
+    font-size: 1.2rem;
+  }
+}

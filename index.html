@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Rock Paper Scissors</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/img/Evernote-Book.ico"
+    />
+
+    <link rel="stylesheet" href="./assets/CSS/styles.css" />
+  </head>
+  <body>
+    <!--  Navigation to resume and Portfolio -->
+    <nav class="navigation">
+      <div class="menuToggle"></div>
+      <div class="userBx">
+        <p class="username">Desmond Hamilton</p>
+        <div class="imgBx">
+          <img src="./assets/img/Desmond.jpg" alt="" />
+        </div>
+      </div>
+      <ul class="menu">
+        <li><a href="#">My Profile</a></li>
+        <li>
+          <a href="mailto:DesHamilton25@outlook.com" target="_blank"
+            >messages</a
+          >
+        </li>
+        <li>
+          <a href="./assets/Responsive-resume/index.html">Resume</a>
+        </li>
+      </ul>
+    </nav>
+    <!--  Navigation to resume and Portfolio -->
+
+    <!-- The start of the Rock Paper Scissors -->
+
+    <!-- header Section -->
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+    <!-- header Section -->
+    <!-- Score-board Section -->
+    <div class="score-board">
+      <div id="user-label" class="badge">user</div>
+      <div id="computer-label" class="badge">Comp</div>
+      <span id="user-score">0</span>:<span id="computer-score"
+        >0</span
+      >
+    </div>
+    <!-- Score-board Section -->
+
+    <!-- Result Section -->
+    <div class="result">
+      <p>Paper cover. You win!</p>
+    </div>
+    <!-- Result Section -->
+
+    <!-- Choices Section -->
+
+    <div class="r-p-s_container">
+      <div class="card-container">
+        <div id="r" class="card_box">
+          <span class="banner ban-r"></span>
+          <div class="choices">
+            <div class="choice">
+              <img src="./assets/img/rock.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="card-container">
+        <div id="p" class="card_box">
+          <span class="banner ban-p"></span>
+          <div class="choices">
+            <div class="choice">
+              <img src="./assets/img/paper.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="card-container">
+        <div id="s" class="card_box">
+          <span class="banner ban-s"></span>
+          <div class="choices">
+            <div class="choice">
+              <img src="./assets/img/scissors.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Choices Section -->
+    <!-- footer note Section -->
+    <p id="action-message">Make your move</p>
+    <!-- footer note Section -->
+
+    <!-- The Ending of the Rock Paper Scissors -->
+
+    <script
+      src="https://kit.fontawesome.com/45d19828c5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/JS/app.js"></script>
+  </body>
+</html>
